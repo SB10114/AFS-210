@@ -20,4 +20,7 @@ data3.pop()
 print(data3)
 
 
-data4 = {'name' = "Joe",  "age" = 26,   "active" = True,  "hourly_wage" = 14.75}
+data4 = {'name' = "Joe",  "age" = 26, "active" = True, "hourly_wage" = 14.75}
+
+data4.update("address" = "123 West Main Street")
+print(data4)
