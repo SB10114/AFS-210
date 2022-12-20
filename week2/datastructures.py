@@ -1,7 +1,7 @@
 data1 = (7, False, "Apple", True, 98.6)
 
 print(len(data1))
-print(data1[4])
+print(data1[3])
 print(data1.count(7))
 
 
@@ -20,7 +20,11 @@ data3.pop()
 print(data3)
 
 
-data4 = {'name' = "Joe",  "age" = 26, "active" = True, "hourly_wage" = 14.75}
+data4 = {'name' : "Joe",  "age" : 26, "active" : True, "hourly_wage" : 14.75}
 
-data4.update("address" = "123 West Main Street")
+
+wages = data4["hourly_wage"] * 40
+data4["active"] = False
+data4["address"] = "123 West Main Street"
+print(wages)
 print(data4)
