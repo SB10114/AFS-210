@@ -18,6 +18,7 @@ class DoublyLinkedList:
         current = self.head
         while current:
             val = current.data
+            # print(val)
             current = current.next
             yield val
 
@@ -30,26 +31,56 @@ class DoublyLinkedList:
     def addFirst(self, data) -> None:
         # Add a node at the front of the list
         node = Node(data)
+        
         if self.count == 0:
             self.head = node
-            self.tail = node
-            self.count += 1
+            self.tail = node 
         else:
             node.next = self.head
-            self.head.previous = node
-            self.head = node
-    
+            self.head.prev = node
+            self.head = node        
+        self.count += 1
+   
     def addLast(self, data) -> None:
         # Add a node at the end of the list
-        pass
-
+        node = Node(data)
+        
+        if self.count == 0:
+            self.tail = node
+            self.head = node
+             
+        else:
+            node.prev = self.tail
+            self.tail.next = node
+            self.tail = node
+        self.count += 1
+    
     def addAtIndex(self, data, index):
         # Add a node to the list at the given index position
         # If index equals to the length of linked list, the node will be appended to the end of linked list
         # If index is greater than the length, the data will not be inserted.
         # This function does not replace the data at the index, but pushes everything else down.
-        pass
 
+        if index == self.count:
+            return self.addLast(data)
+        else:
+            if index > (self.count):
+                return
+            if index == 0:
+                return self.addFirst(data)
+            else:
+                curr = self.head
+                count = 0
+           
+            node = Node(data)
+           
+            while curr.next != None:
+                if(count == index):
+                    self.count
+                else:
+                    count += 1
+                    curr = curr.next
+        self.count = 0
     def indexOf(self, data):
         # Search through the list. Return the index position if data is found, otherwise return -1    
         pass
@@ -134,6 +165,14 @@ class DoublyLinkedList:
         return myStr
 
 list = DoublyLinkedList()
-print(list)
-print(list.addFirst(12))
-print(list)
+# print(list)
+list.addAtIndex("you", 0)
+list.addFirst("with")
+list.addFirst("be")
+list.addFirst("force")
+list.addFirst("the")
+list.addFirst("May")
+list.addAtIndex("!", 6)
+#list.addAtIndex("all", 5)
+print(list.__str__())
+
