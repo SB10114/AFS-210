@@ -62,28 +62,38 @@ class DoublyLinkedList:
         # This function does not replace the data at the index, but pushes everything else down.
 
         if index == self.count:
-            return self.addLast(data)
+            return self.addLast(data) 
+        elif index == 0:
+            return self.addFirst(data)
+        elif index > self.count:
+            return 
         else:
-            if index > (self.count):
-                return
-            if index == 0:
-                return self.addFirst(data)
-            else:
-                curr = self.head
-                count = 0
-           
+            curr = self.head
+            pos = 0
             node = Node(data)
-           
             while curr.next != None:
-                if(count == index):
-                    self.count
-                else:
-                    count += 1
-                    curr = curr.next
-        self.count = 0
+                print(curr.data)
+                if(pos == index):
+                    curr.next.prev = node 
+                    node.next = curr.next
+                    node.prev = curr
+                    curr.next = node 
+                    break
+                pos += 1
+                curr = curr.next
+        self.count += 1
+    
     def indexOf(self, data):
         # Search through the list. Return the index position if data is found, otherwise return -1    
-        pass
+        curr = self.head
+        pos = -1
+        
+        while curr.next != None:
+            pos += 1
+            if(curr.data == data):
+                return pos
+            curr = curr.next
+        return -1
 
 
     def add(self, data) -> None:
@@ -166,13 +176,16 @@ class DoublyLinkedList:
 
 list = DoublyLinkedList()
 # print(list)
-list.addAtIndex("you", 0)
+list.addFirst("you")
 list.addFirst("with")
 list.addFirst("be")
 list.addFirst("force")
 list.addFirst("the")
 list.addFirst("May")
-list.addAtIndex("!", 6)
-#list.addAtIndex("all", 5)
+list.addAtIndex("all", 6)
+list.addAtIndex("!", 7)
 print(list.__str__())
-
+print(list.indexOf("with"))
+list.delete("you")
+list.addAtIndex("us", 4)
+print(list.__str__())
