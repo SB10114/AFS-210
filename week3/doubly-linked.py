@@ -72,7 +72,6 @@ class DoublyLinkedList:
             pos = 0
             node = Node(data)
             while curr.next != None:
-                print(curr.data)
                 if(pos == index):
                     curr.next.prev = node 
                     node.next = curr.next
@@ -175,13 +174,13 @@ class DoublyLinkedList:
         return myStr
 
 list = DoublyLinkedList()
-# print(list)
-list.addFirst("you")
-list.addFirst("with")
-list.addFirst("be")
-list.addFirst("force")
-list.addFirst("the")
+
 list.addFirst("May")
+list.add("the")
+list.add("force")
+list.add("be")
+list.add("with")
+list.add("you")
 list.addAtIndex("all", 6)
 list.addAtIndex("!", 7)
 print(list.__str__())
