@@ -61,7 +61,13 @@ class queue:
     
 
 def isPalindrome (str):
-    pass
+    s = input('Enter a string for your value: ')
 
-yellow = input ('Enter string of choice: ')
-print (isPalindrome(yellow))
+    reverse = s[::-1]
+
+    if(s == reverse):
+        print("is palindrome")
+    else: 
+        print("is not palindrome")
+
+isPalindrome(" ")
