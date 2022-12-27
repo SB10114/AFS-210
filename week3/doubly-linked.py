@@ -71,12 +71,12 @@ class DoublyLinkedList:
             curr = self.head
             pos = 0
             node = Node(data)
-            while curr.next != None:
+            while curr != None:
                 if(pos == index):
-                    curr.next.prev = node 
-                    node.next = curr.next
-                    node.prev = curr
-                    curr.next = node 
+                    curr.prev.next = node 
+                    node.prev = curr.prev
+                    curr.next = curr
+                    curr.prev = node
                     break
                 pos += 1
                 curr = curr.next
@@ -145,7 +145,7 @@ class DoublyLinkedList:
                     self.head = current.next
                 else:
                     prev.next = current.next
-                    current.next = prev
+                    current.next.prev = prev
                 self.count -= 1
                 return
             prev = current
@@ -181,10 +181,10 @@ list.add("force")
 list.add("be")
 list.add("with")
 list.add("you")
-list.addAtIndex("all", 6)
-list.addAtIndex("!", 7)
-print(list.__str__())
+print(list)
 print(list.indexOf("with"))
 list.delete("you")
-list.addAtIndex("us", 4)
-print(list.__str__())
+list.addAtIndex("us", 5)
+list.addAtIndex("all", 6)
+list.addAtIndex("!", 7)
+print(list)
