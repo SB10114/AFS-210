@@ -7,21 +7,41 @@ class HashTable:
     def hashfunction(self,key):
         # Insert your hashing function code
         # key modulus table_size
-
+        # h = 0
+        # for char in str(key):
+        #     h += ord(char)
+        # return h % self.size
         return key % self.size
 
     def rehash(self,key):
         # Insert your secondary hashing function code
-        pass
+        return key // self.size
+
     def put(self,key,data):
         # Insert your code here to store key and data 
         hashvalue = self.hashfunction(key)
-        self.slots[hashvalue] = key
-        self.data[hashvalue] = data
+        if self.slots[hashvalue] == None:
+            self.slots[hashvalue] = key
+            self.data[hashvalue] = data
+        else:
+            hashvalue = self.rehash(key)
+            if self.slots[hashvalue] == None:
+                self.slots[hashvalue] = key
+                self.data[hashvalue] = data
+            else:
+                print("unresolved collisions")
 
     def get(self,key):
         # Insert your code here to get data by key
-        pass
+        hashvalue = self.hashfunction(key)
+        if self.slots[hashvalue] == key:
+            return self.data[hashvalue]
+        else: 
+            hashvalue = self.rehash(key)
+            if self.slots[hashvalue] == key:
+                return self.data[hashvalue]
+        return None 
+
     def __getitem__ (self,key):
         return self.get(key)
 
