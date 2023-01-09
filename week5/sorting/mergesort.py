@@ -1,37 +1,17 @@
 def mergeSort(nlist):
-    
+    print("Splitting ",nlist) 
     
     # insert your code to complete the mergeSort function
     if len(nlist) > 1:
         leftArr = nlist[:len(nlist)//2]
         rightArr = nlist[len(nlist)//2:]
+        merge(nlist, leftArr, rightArr) 
 
         mergeSort(leftArr)
         mergeSort(rightArr)
-
-        i=j=k= 0
-
-        while i < len(leftArr) and j < len(rightArr):
-            if leftArr[i] < rightArr[j]:
-                nlist[k] = leftArr[i]
-                i += 1
-            else:
-                nlist[k] = rightArr[j]
-                j += 1
-            k+= 1
-        
-        while i < len(leftArr):
-            nlist[k] = leftArr[i]
-            i += 1
-            k += 1
-
-        while j < len(rightArr):
-            nlist[k] = rightArr[j]
-            j += 1
-            k += 1
-    
+        merge(nlist, rightArr, leftArr)
+       
     print("Merging ",nlist)
-    print("Splitting ",nlist)
     
 
 def merge(nlist,lefthalf,righthalf):
@@ -58,3 +38,4 @@ def merge(nlist,lefthalf,righthalf):
 
 nlist = [ 55 ,  31 ,  26 ,  20 ,  63 ,  7 ,  51 ,  74 ,  81 ,  40 ]
 mergeSort(nlist)
+print("Sort: ",nlist)
