@@ -1,12 +1,6 @@
-class Node:
-    def __init__(self, data=None):
-        self.data = data
-        self.next = None
-        self.prev = None
-
 class stack:
     def __init__(self):
-            self.data = []
+        self.data = []
 
     def push(self, data):
         self.data.append(data)
@@ -20,54 +14,51 @@ class stack:
         else:
             return True   
     def peek (self):
-        return self.data[len(self.data) -1]
-
+        return self.data[-1]
+    
+    def __str__(self):
+        return str(self.data)
 
 class queue:
-    def _init_(self):
-        self.head = None
-        self.tail = None
-        self.count = 0
+    def __init__(self):
+        self.data = []
 
     def enqueue(self, data ):
-        new_node = Node(data)
-        if self.head is None:
-            self.head = new_node
-            self.tail = self.head
-        else:
-            self.tail.next = new_node
-            new_node.prev = self.tail
-            self.tail = new_node
-
-        self.count += 1
+        return self.data.insert(0, data)
   
     def dequeue(self):
-        curr = self.head.next
-        curr.prev = None
-        self.head = curr
+        return self.data.pop()
         
     def size(self):
-        return self.count 
-
+        return len(self.data)
     def isEmpty(self):
-        if self.count == 0:
+        if len(self.data) == 0:
             return False
         else:
-            return True
-        
-
+            return True   
     def peek (self):
-        return self.head
+        return self.data[-1]
+
+    def __str__(self):
+        return str(self.data)
+
+def isPalindrome (word):
+    S = stack()
+    Q = queue()
+
+    for letter in word:
+        S.push(letter)
+        Q.enqueue(letter)
     
+    print(S)
+    print(Q)
 
-def isPalindrome (str):
-    s = input('Enter a string for your value: ')
+    for char in range(0, S.size()):
+        if S.data[char] != Q.data[char]:
+            return False
 
-    reverse = s[::-1]
-
-    if(s == reverse):
-        print("is palindrome")
-    else: 
-        print("is not palindrome")
-
-isPalindrome(" ")
+    return True  
+    
+    
+s = input('Enter a string for your value: ')
+print(isPalindrome(s))
