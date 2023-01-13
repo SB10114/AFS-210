@@ -183,11 +183,11 @@ class DoublyLinkedList:
 
 #         # Randomly pick an index to swap with:
 
-#             swapIndex = random.randint(0, values.size() - 1)
+#             indexChange = random.randint(0, values.size() - 1)
 
 #         # Swap the values between the two indexes:
 
-#             values[i], values[swapIndex] = values[swapIndex], values[i]
+#             values[i], values[indexChange] = values[indexChange], values[i]
 
 #         return values
 

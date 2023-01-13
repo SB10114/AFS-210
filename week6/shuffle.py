@@ -8,11 +8,11 @@ def shuffle(values):
 
         # Randomly pick an index to swap with:
 
-        swapIndex = random.randint(0, len(values) - 1)
+        indexChange = random.randint(0, len(values) -1)
 
         # Swap the values between the two indexes:
 
-        values[i], values[swapIndex] = values[swapIndex], values[i]
+        values[i], values[indexChange] = values[indexChange], values[i]
 
     return values
 
@@ -22,4 +22,4 @@ print(shuffle(my_list))
 print(shuffle(my_list2))
 
 
-#Time complexity is: 0(1) - A loop or recursion that runs a constant number of times is also considered O(1).
+#Time complexity is: 0(n) - The Time Complexity of a loop is considered as O(n) if the loop variables are incremented/decremented by a constant amount.
