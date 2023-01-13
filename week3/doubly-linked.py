@@ -1,3 +1,5 @@
+import random
+
 class Node:
     # A doubly-linked node.
     def __init__(self, data=None):
@@ -172,6 +174,22 @@ class DoublyLinkedList:
         for node in self.iter():
              myStr += str(node)+ " "
         return myStr
+    
+# def shuffle(values): #testing for capstone
+    
+#     # Loop over the range of indexes from 0 up to the length of the list:
+
+#         for i in range(values.size() -1):
+
+#         # Randomly pick an index to swap with:
+
+#             swapIndex = random.randint(0, values.size() - 1)
+
+#         # Swap the values between the two indexes:
+
+#             values[i], values[swapIndex] = values[swapIndex], values[i]
+
+#         return values
 
 list = DoublyLinkedList()
 
@@ -188,3 +206,5 @@ list.addAtIndex("us", 5)
 list.addAtIndex("all", 6)
 list.addAtIndex("!", 7)
 print(list)
+
+#print(shuffle(list))
