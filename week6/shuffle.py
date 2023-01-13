@@ -20,3 +20,6 @@ my_list = [7, 20, 26, 31, 40, 51, 55, 63, 74, 81]
 my_list2= ["this", "is", "a", "random", "list"]
 print(shuffle(my_list))
 print(shuffle(my_list2))
+
+
+#Time complexity is: 0(1) - A loop or recursion that runs a constant number of times is also considered O(1).
