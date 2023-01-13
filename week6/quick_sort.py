@@ -16,6 +16,19 @@ def quick_sort(a_list, start, end):
 def partitionStart(a_list, start, end):
     return partition(a_list, start, end)
 
+def partitionMiddle(a_list, start, end):#flips middle and start
+    a_list[start], a_list[len(a_list)//2] = a_list[len(a_list)//2], a_list[start]
+    return partition(a_list, start, end)
+
+def partitionLast(a_list, start, end):#flips start and end
+    a_list[start], a_list[end] = a_list[end], a_list[start]
+    return partition(a_list, start, end)
+
+
+def partitionRandom(a_list, start, end):#flips random and start
+    a_list[start], a_list[random.randint(0, end) ] = a_list[random.randint(0, end)], a_list[start]
+    return partition(a_list, start, end)
+
 def partition(a_list, start, end):
     # Select the first element as our pivot point
     pivot = a_list[start]

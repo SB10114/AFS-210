@@ -14,12 +14,12 @@ def shuffle(values):
 
         values[i], values[indexChange] = values[indexChange], values[i]
 
-    return values
+    return values #return values
 
-my_list = [7, 20, 26, 31, 40, 51, 55, 63, 74, 81]
-my_list2= ["this", "is", "a", "random", "list"]
+my_list = [7, 20, 26, 31, 40, 51, 55, 63, 74, 81]#tests random numbers
+my_list2= ["this", "is", "a", "random", "list"]#tests random strings
 print(shuffle(my_list))
 print(shuffle(my_list2))
 
 
-#Time complexity is: 0(n) - The Time Complexity of a loop is considered as O(n) if the loop variables are incremented/decremented by a constant amount.
+#Time complexity is: 0(n) - The Time Complexity of a loop is considered as O(n) since the iterations of the function grow with the size of the list.
