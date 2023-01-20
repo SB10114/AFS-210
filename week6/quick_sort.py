@@ -8,7 +8,7 @@ def quick_sort(a_list, start, end):
 
     # Call the partition helper function to split the list into two section 
     # divided between a pivot point
-    pivot = partitionStart(a_list, start, end)
+    pivot = partitionRandom(a_list, start, end)
     quick_sort(a_list, start, pivot-1)
     quick_sort(a_list, pivot+1, end)
         
