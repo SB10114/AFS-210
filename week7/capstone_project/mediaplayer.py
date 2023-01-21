@@ -82,24 +82,20 @@ class Mediaplayer:
                 return
             prev = current
             current = current.next
-    
-  
+
     def shuffle(self):
+        
         # Loop over the range of indexes from 0 up to the length of the list:
-        for i in range(0, len(self.list) ):
-            
+        for i in range(0, len(self.list)):
             # Randomly pick an index to swap with:
-            indexChange = random.randint(0, len(self.list) )
+            indexChange = random.randint(0, len(self.list))
 
              # Swap the self.list between the two indexes
             self.list[i], self.list[indexChange] = self.list[indexChange], self.list[i]
         for x in range(len(self.list)):
             print(self.list[x])
         return self.list
-
-        
-        
-
+            
     def __str__(self):
         myStr = ""
         for node in self.iter():
@@ -113,10 +109,10 @@ class Mediaplayer:
         
 
     def play(self):
-        if self.curr == None:
-            print(self.head.title)
-        else:
-            print(self.curr.title)
+            if self.curr == None:
+                print(self.head.title)
+            else:
+                print(self.curr.title)
 
     def skip(self):
         if self.curr == None:
@@ -125,7 +121,6 @@ class Mediaplayer:
             self.curr = self.head
         else:
             self.curr = self.curr.next
-        # print(self.curr.title)
 
     def goBack(self):
         if self.curr == None:
@@ -211,12 +206,11 @@ while True:
         # Randomly shuffle the playlist and play the first song
         # Display song name that is now playing
         mediaplayer.shuffle()
-        #print(mediaplayer)
         print("Shuffling....")    
     elif choice == 7:
         # Display the song name and artist of the currently playing song
         mediaplayer.currPlay()
-        print("Currently playing: ", end=" ")    
+        print("Currently playing: \n", end=" ")    
     elif choice == 8:
         # Show the current song list order
         # print(shuffle(mediaplayer))
