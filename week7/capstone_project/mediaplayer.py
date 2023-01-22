@@ -89,37 +89,19 @@ class Mediaplayer:
             prev = current
             current = current.next
 
-    # def shuffle(self):
-        
-    #     # Loop over the range of indexes from 0 up to the length of the list:
-    #     for i in range(0, len(self.list)):
-    #         # Randomly pick an index to swap with:
-    #         indexChange = random.randint(0, len(self.list))
-
-    #          # Swap the self.list between the two indexes
-    #         self.list[i], self.list[indexChange] = self.list[indexChange], self.list[i]
-    #     for x in range(len(self.list)):
-    #         print(self.list[x])
-    #     return self.list
-            
     def shuffle(self):
-    
     # Loop over the range of indexes from 0 up to the length of the list:
-
         for i in range(self.count -1, 0 -1):
-
         # Randomly pick an index to swap with:
-
-            j = random.randint(0, i)
-
+            j = random.randint(0, i -1)
         # Swap the values between the two indexes:
-
             self[i], self[j] = self[j], self[i]
+        return self.count
 
     def __str__(self):
         myStr = ""
         for node in self.iter():
-            myStr += str(node)+ "\n"
+            myStr += str(node.data)+ "\n"
             
         return myStr
     
@@ -223,30 +205,30 @@ while True:
         # Display song name that is now playing
         mediaplayer.skip()
         print("Skipping....")
-        print(mediaplayer.curr)
+        mediaplayer.currPlay()
 
     elif choice == 5:
         # Go back to the previous song on the playlist
         # Display song name that is now playing
         mediaplayer.goBack()
         print("Replaying....")
-        print(mediaplayer.curr)
+        mediaplayer.currPlay()
           
     elif choice == 6:
         # Randomly shuffle the playlist and play the first song
         # Display song name that is now playing
-        mediaplayer.shuffle()
+        print("Shuffling....") 
         print(mediaplayer)
-        print("Shuffling....")    
+        mediaplayer.shuffle()
+        
     elif choice == 7:
         # Display the song name and artist of the currently playing song
-        mediaplayer.currPlay()
-        print("Currently playing: \n", end=" ")    
+        print("Currently playing: \n", end=" ")   
+        mediaplayer.currPlay() 
     elif choice == 8:
         # Show the current song list order
-        # print(shuffle(mediaplayer))
         print("\nSong list:\n")
-        print (mediaplayer)
+        print(mediaplayer)
     elif choice == 0:
         print("Goodbye.")
         break
