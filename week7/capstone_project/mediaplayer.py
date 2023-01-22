@@ -91,11 +91,12 @@ class Mediaplayer:
 
     def shuffle(self):
     # Loop over the range of indexes from 0 up to the length of the list:
-        for i in range(self.count -1, 0 -1):
+        for i in range(0, self.count -1):
         # Randomly pick an index to swap with:
-            j = random.randint(0, i -1)
+            j = random.randint(0, i)
         # Swap the values between the two indexes:
             self[i], self[j] = self[j], self[i]
+        print(self)
         return self.count
 
     def __str__(self):
@@ -220,7 +221,7 @@ while True:
         print("Shuffling....") 
         print(mediaplayer)
         mediaplayer.shuffle()
-        
+
     elif choice == 7:
         # Display the song name and artist of the currently playing song
         print("Currently playing: \n", end=" ")   
